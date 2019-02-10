@@ -1,0 +1,83 @@
+---
+title: "HW3: Sections 2.3, 5.2, and 6.2"
+author: "Your Name Here"
+output: pdf_document
+---
+
+The code below just loads some packages and makes it so that enough digits are printed that you won't get confused by rounding errors.
+
+```{r, message = FALSE}
+library(dplyr) # functions like summarize
+library(ggplot2) # for making plots
+library(mosaic) # convenient interface to t.test function
+
+options("pillar.sigfig" = 10) # print 10 significant digits in summarize output
+```
+
+## Problem 1: Sleuth3 2.12 (Marijuana use during pregnancy)
+
+For the birth weights of babies in two groups, one born to mothers who used marijuana during pregnancy and the other born to mothers who did not, the difference in sample averages (mothers who did not use marijuana minus mothers who used marijuana) was 280 grams, and the standard error of the difference was 46.66 grams with 1,095 degrees of freedom.
+
+### (a) From the information above, find a 95% confidence interval for $\mu_2 - \mu_1$ (the difference in means for mothers who did not use marijuana and for mothers who did use marijuana) and interpret the interval in context.
+
+```{r}
+
+```
+
+### (b) Find a 90% confidence for $\mu_2 - \mu_1$.  No need to interpret the interval in context.
+
+```{r}
+
+```
+
+### (c) Find the two-sided p-value for a test of the hypothesis that $\mu_2 - \mu_1 = 0$.  Interpret the p-value in terms of strength of evidence against the null hypothesis, in context.
+
+For this part, you will have to use the `pt` function as in the lab from February 11, 2019.
+
+```{r}
+
+```
+
+## Problem 2: Adapted from Sleuth3 2.21
+
+In 1899, biologist Hermon Bumpus presented as evidence of natural selection a comparison of numerical characteristics of moribund house sparrows that were collected after an uncommonly severe winter storm and which had either perished as a result of their injuries or survived.  The following R code reads in a data set with the length of the humerus (arm bone) in inches for 59 of these sparrows, grouped according to whether they survived or perished.  Analyze these data to summarize the evidence that the mean humerus length is different in the two populations.  In your analysis, please include:
+
+ * an appropriately labelled plot
+ * definitions of any parameters you are making inference about
+ * estimates of those parameters
+ * a relevant hypothesis test and confidence interval
+
+Your results should all be discussed in context.
+
+```{r}
+
+```
+
+
+## Problem 3: Adapted from Sleuth3 6.22
+
+Was *Tyrannosaurus rex* warm-blooded?  The R code below reads in data with several measurements of the oxygen isotopic composition of bone phosphate in each of 123 bone specimens from a single *Tyrannosaurus rex* skeleton.  It is known that the oxygen isotopic composition of vertebrate bone phosphate is related to the body temperature at which the bone forms.  Differences in means at different bone sites would indicate nonconstant temperatures throughout the body.  Minor temperature differences would be expected in warm-blooded animals.
+
+The following R code reads in a data set with measurements of oxygen isotopic composition of vertebrate bone phosphate (per mil deviations from SMOW) in 12 bones of a singe Tyrannosaurus rex specimen.  For each bone sample, multiple measurements were taken.
+
+```{r}
+trex <- read_csv("http://www.evanlray.com/data/sleuth3/ex0523_trex.csv") %>%
+  mutate(
+    Bone = factor(Bone, levels = paste0("Bone", 1:12))
+  )
+```
+
+#### (a) Make side by side box plots of the data
+
+```{r}
+
+```
+
+#### (b) Bones 2 and 3 were both gastralia (roughly similar to human ribs), and bones 4 and 5 were both dorsal vertebra (part of the backbone).  Is there evidence that the mean oxygen isotopic composition is different for the gastralia than for the dorsal vertebra?  Specify a linear combination of means for the 12 bones that could be used to address this question, and conduct a relevant hypothesis test and find a confidence interval.  Interpret all of your results in context.
+
+```{r}
+
+```
+
+
+
